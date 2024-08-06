@@ -41,7 +41,7 @@ import 'package:flutter/rendering.dart';
 ///
 ///  * [CustomFixedScrollMetrics], which is an immutable object that implements this
 ///    interface.
-mixin ScrollMetrics {
+mixin CustomScrollMetrics {
   /// Creates a [ScrollMetrics] that has the same properties as this object.
   ///
   /// This is useful if this object is mutable, but you want to get a snapshot
@@ -50,7 +50,7 @@ mixin ScrollMetrics {
   /// The named arguments allow the values to be adjusted in the process. This
   /// is useful to examine hypothetical situations, for example "would applying
   /// this delta unmodified take the position [outOfRange]?".
-  ScrollMetrics copyWith({
+  CustomScrollMetrics copyWith({
     double? minScrollExtent,
     double? maxScrollExtent,
     double? pixels,
