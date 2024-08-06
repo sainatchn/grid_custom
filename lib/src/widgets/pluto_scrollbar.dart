@@ -377,7 +377,7 @@ class PlutoGridCupertinoScrollbarState extends State<PlutoScrollbar>
   }
 
   bool _handleScrollNotification(ScrollNotification notification) {
-    final ScrollMetrics metrics = notification.metrics;
+    final CustomScrollMetrics metrics = notification.metrics;
     if (metrics.maxScrollExtent <= metrics.minScrollExtent) {
       return false;
     }
@@ -473,7 +473,7 @@ class PlutoGridCupertinoScrollbarState extends State<PlutoScrollbar>
     if (hoverAxis == _currentHoverAxis) return;
     _currentHoverAxis = hoverAxis;
 
-    ScrollMetrics? metrics;
+    CustomScrollMetrics? metrics;
     bool needUpdate = false;
 
     switch (hoverAxis) {
@@ -902,13 +902,13 @@ class _ScrollbarPainter extends ChangeNotifier implements CustomPainter {
       orientation == ScrollbarOrientation.left ||
       orientation == ScrollbarOrientation.right;
 
-  ScrollMetrics? _lastMetrics;
+  CustomScrollMetrics? _lastMetrics;
   AxisDirection? _lastAxisDirection;
 
-  ScrollMetrics? _lastVerticalMetrics;
+  CustomScrollMetrics? _lastVerticalMetrics;
   AxisDirection? _lastVerticalAxisDirection;
 
-  ScrollMetrics? _lastHorizontalMetrics;
+  CustomScrollMetrics? _lastHorizontalMetrics;
   AxisDirection? _lastHorizontalAxisDirection;
 
   Rect? _thumbRect;
@@ -920,7 +920,7 @@ class _ScrollbarPainter extends ChangeNotifier implements CustomPainter {
   ///
   /// The scrollbar will remain on screen.
   void update(
-    ScrollMetrics metrics,
+    CustomScrollMetrics metrics,
     AxisDirection axisDirection,
   ) {
     final bool vertical = axisDirection == AxisDirection.up ||
@@ -952,14 +952,14 @@ class _ScrollbarPainter extends ChangeNotifier implements CustomPainter {
       _lastHorizontalAxisDirection = axisDirection;
     }
 
-    final ScrollMetrics? oldMetrics =
+    final CustomScrollMetrics? oldMetrics =
         vertical ? _lastVerticalMetrics : _lastHorizontalMetrics;
 
     _lastMetrics = vertical ? _lastVerticalMetrics : _lastHorizontalMetrics;
     _lastAxisDirection =
         vertical ? _lastVerticalAxisDirection : _lastHorizontalAxisDirection;
 
-    bool needPaint(ScrollMetrics? metrics) =>
+    bool needPaint(CustomScrollMetrics? metrics) =>
         metrics != null && metrics.maxScrollExtent > metrics.minScrollExtent;
     if (!needPaint(oldMetrics) && !needPaint(metrics)) return;
 
@@ -1176,7 +1176,7 @@ class _ScrollbarPainter extends ChangeNotifier implements CustomPainter {
 
   // Converts between a scroll position and the corresponding position in the
   // thumb track.
-  double _getScrollToTrack(ScrollMetrics metrics, double thumbExtent) {
+  double _getScrollToTrack(CustomScrollMetrics metrics, double thumbExtent) {
     final double scrollableExtent =
         metrics.maxScrollExtent - metrics.minScrollExtent;
 
