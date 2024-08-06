@@ -377,7 +377,7 @@ class PlutoGridCupertinoScrollbarState extends State<PlutoScrollbar>
   }
 
   bool _handleScrollNotification(ScrollNotification notification) {
-    final CustomScrollMetrics metrics = notification.metrics;
+    final CustomScrollMetrics metrics = CustomFixedScrollMetrics(minScrollExtent: notification.metrics.maxScrollExtent, maxScrollExtent: notification.metrics.maxScrollExtent, pixels: notification.metrics.pixels, viewportDimension: notification.metrics.viewportDimension, axisDirection: notification.metrics.axisDirection, devicePixelRatio: notification.metrics.devicePixelRatio);
     if (metrics.maxScrollExtent <= metrics.minScrollExtent) {
       return false;
     }
