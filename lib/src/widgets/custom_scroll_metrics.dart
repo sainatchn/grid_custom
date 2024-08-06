@@ -168,8 +168,7 @@ class CustomFixedScrollMetrics with ScrollMetrics {
     required double? pixels,
     required double? viewportDimension,
     required this.axisDirection,
-    required this.devicePixelRatio,
-    devicePixelRatio = 1.0,
+    required this.devicePixelRatio
   }) : _minScrollExtent = minScrollExtent,
        _maxScrollExtent = maxScrollExtent,
        _pixels = pixels,
