@@ -160,7 +160,7 @@ mixin CustomScrollMetrics {
 ///
 /// ** See code in examples/api/lib/widgets/scroll_position/scroll_metrics_notification.0.dart **
 /// {@end-tool}
-class CustomFixedScrollMetrics with ScrollMetrics {
+class CustomFixedScrollMetrics with CustomScrollMetrics {
   /// Creates an immutable snapshot of values associated with a [Scrollable] viewport.
   CustomFixedScrollMetrics({
     required double? minScrollExtent,
