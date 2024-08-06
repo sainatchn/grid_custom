@@ -11,7 +11,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:pluto_grid/src/widgets/custom_scroll_metrics.dart';
+import 'package:pluto_grid/pluto_grid.dart';
+
 
 const double _kScrollbarMinLength = 36.0;
 const double _kScrollbarMinOverscrollLength = 8.0;
